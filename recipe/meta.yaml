@@ -1,5 +1,5 @@
 {% set name = "elyra-r-editor-extension" %}
-{% set version = "3.11.0" %}
+{% set version = "3.11.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/elyra-r-editor-extension-{{ version }}.tar.gz
-  sha256: cb566144234967bcfda858510d94ac4510fab4923f38720b3547b86435b3d6cf
+  sha256: 965e1c875f3b6062c363766a8057cde9f288f46f3c113558c182b20bf6acc1c4
 
 build:
   noarch: python
@@ -21,7 +21,7 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - elyra-server ==3.11.0
+    - elyra-server =={{ version }}
     - jupyter_packaging
 
 test:
