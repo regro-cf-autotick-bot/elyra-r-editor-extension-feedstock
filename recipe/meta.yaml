@@ -21,7 +21,7 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - elyra-server ==3.11.0
+    - elyra-server =={{ version }}
     - jupyter_packaging
 
 test:
