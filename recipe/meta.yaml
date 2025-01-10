@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/elyra-r-editor-extension-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/elyra-r-editor-extension-{{ version }}.tar.gz
   sha256: ad1140703d9c9ca5ae1a03fa2196a373eb8092dd649dc8cb345d949ca6070e99
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - jupyter_packaging
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - elyra-server =={{ version }}
     - jupyter_packaging
 
@@ -29,6 +29,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/elyra-ai/elyra
